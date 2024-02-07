@@ -1,0 +1,11 @@
+Player tera uma vila, onde ele coletara madeira(arvore), minerios(ouro)
+e comida(carne de ovelha)
+Ele tera um tempo que seria o dia para coletar os materiais, de noite os inimigos irao atacar
+Obs: ele pode continuar coletando material enquanto os inimigos atacam
+Com os materiais ele pode fazer armas para ele ou recrutar aliados ou construir torres
+
+Sera como um tower defense, os inimigos irao atacar os seus aliados(knights), mas voce e as torres não
+
+A vila:
+Terá uma vila em que ele coletara os recursos
+tera as houses(Craft dos itens e estoque)

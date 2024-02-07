@@ -1,0 +1,15 @@
+text = "";
+option = false;
+vsync = read_ini("graphics", "vsync");
+aa = read_ini("graphics", "anti_aliasing");
+is_on = false;
+fullscreen = read_ini("graphics", opt);
+res_width = read_ini("graphics", "resolution_width")
+res_height = read_ini("graphics", "resolution_height")
+dsp_width = display_get_width();
+dsp_height = display_get_height();
+sprite = spr_button_blue_pause;
+x1 = x;
+y1 = y;
+y = y1 + (indice * 96) + 24;
+sprite_index = spr_mask_button;
