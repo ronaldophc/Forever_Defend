@@ -6,6 +6,8 @@ Com os materiais ele pode fazer armas para ele ou recrutar aliados ou construir 
 
 Sera como um tower defense, os inimigos irao atacar os seus aliados(knights), mas voce e as torres não
 
+teste
+
 A vila:
 Terá uma vila em que ele coletara os recursos
 tera as houses(Craft dos itens e estoque)
