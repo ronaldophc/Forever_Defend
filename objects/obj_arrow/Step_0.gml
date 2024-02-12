@@ -5,9 +5,9 @@ if(target != noone) {
 	}
 	var _dist = point_distance(x, y, target.x, target.y);
 	if(_dist < 30) {
+		target.life -= usou.damage;
 		instance_destroy();
-		target.life -= 50;
 		exit;
 	}
 }
-if(point_distance(x, y, _x, _y) > usou.area + 50) instance_destroy();
+if(point_distance(x, y, xstart, ystart) > usou.area + 75) instance_destroy();

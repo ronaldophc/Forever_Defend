@@ -6,8 +6,3 @@ if(room = rm_game) {
 		obj_path_control.grid[_relative_x][_relative_y] = id;
 	}
 }
-//if(instance_exists(obj_enemy)) {
-//	with(obj_enemy) {
-//		gera_path();	
-//	}
-//}

@@ -1,4 +1,5 @@
 #region Variables
+global.menu = noone;
 state = noone;
 state_txt = "idle"
 debug = true;
@@ -14,9 +15,10 @@ image_spd = 10 / game_get_speed(gamespeed_fps);
 image_numb = 1;
 axespr = "chopp";
 #region resources
-wood = 100;
-gold = 105;
-food = 120;
+wood = 20;
+//gold = 30;
+gold = 30;
+food = 15;
 #endregion
 sprites = {
 		idle: spr_worker_idle,
@@ -87,7 +89,6 @@ olhar_mouse = function () {
 ajusta_sprite = function(_state) {
 	if(sprite != sprites[$ _state]) image_ind = 0;
 	sprite = sprites[$ _state];
-	//if(state != state_axe) mask_index = sprite;
 	image_numb = sprite_get_number(sprite);
 	image_ind += image_spd;
 	image_ind %= image_numb;
@@ -97,30 +98,19 @@ ajusta_sprite = function(_state) {
 #region Actions
 
 action = function() {
+	if(global.buy != noone) exit;
 	if(mouse_check_button_pressed(mb_left)) {
-		var _col = noone;
-		_col = instance_place(mouse_x, mouse_y, obj_gold_mine);
-		if(_col) {
-			var _dist_gold = point_distance(x, y, _col.x, _col.y);
-			if(_dist_gold < 100) {
-				_col.inc_life();
-			} else {
-				if(weapon == weapons[1]) {
-					if(mouse_x < x) xscale = -1; else xscale = 1;
-					if(mouse_y > y) dire = "chopp"; else dire = "chopp_top";
-					state = state_axe;
-				} else if(weapon == weapons[2]) {
-					state = state_hammer;
-				}	
-			}
-		} else {
+		if(!instance_position(mouse_x, mouse_y, obj_gold_mine) && global.menu == noone) {
 			if(weapon == weapons[1]) {
 				if(mouse_x < x) xscale = -1; else xscale = 1;
 				if(mouse_y > y) axespr = "chopp"; else axespr = "chopp_top";
 				state = state_axe;
-			} else if(weapon == weapons[2]) {
-				state = state_hammer;
 			}
+		}
+	}
+	if(mouse_check_button_pressed(mb_right)) {
+		if(weapon == weapons[2]) {
+			global.menu = id;
 		}
 	}
 }
@@ -178,7 +168,7 @@ state_axe = function () {
 	ajusta_sprite(axespr);
 	if(image_ind >= 4) {
 		if(!instance_exists(obj_axe_hitbox)) {
-			if(axespr == "chopp_top") instance_create_layer(x, y, layer, obj_axe_hitbox); else instance_create_layer(x, y + (sprite_get_height(spr_worker_chopp_hitbox) / 2), layer, obj_axe_hitbox);
+			if(axespr == "chopp_top") instance_create_layer(x, y, "Battle", obj_axe_hitbox); else instance_create_layer(x, y + (sprite_get_height(spr_worker_chopp_hitbox) / 2), "Battle", obj_axe_hitbox);
 		}
 	}
 	if(image_ind + image_spd >= image_numb) {
@@ -205,6 +195,5 @@ state_hammer = function () {
 	//	state = state_idle;
 	//}
 }
-
 
 state = state_idle;

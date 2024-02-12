@@ -26,7 +26,7 @@
   "origin": 4,
   "parent": {
     "name": "Archer",
-    "path": "folders/Sprites/Archer.yy",
+    "path": "folders/Sprites/Heroes/Archer.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

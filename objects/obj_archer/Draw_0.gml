@@ -1,8 +1,2 @@
 draw_sprite_ext(sprite, image_ind, x, y, xscale, 1, 1, c_white, 1);
-
-//draw_set_valign(1);
-//draw_set_halign(1);
-//draw_text(x, y + 16, state_txt);
-//draw_set_valign(-1);
-//draw_set_halign(-1);
-//draw_circle(x, y, area, true);
+draw_circle(x, y, area, true);

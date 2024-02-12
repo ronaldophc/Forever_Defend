@@ -1,0 +1,134 @@
+Nome do jogo: Forever: Defend
+É um jogo tower defense com um pouco de sobrevivencia
+O jogo é um top-down de 64x64 pixels feito no game maker 2
+Terá duas "ilhas" no jogo, a de cima que é a vila do jogador onde irá coletar recursos e a ilha de baixo onde os golbins irao atacar.
+O player sera um personagem andavel
+Começa com: 20 de madeira, 15 de carne e 30 de ouro.
+** Ilha de cima:
+Largura : 2432 pixels
+Altura : 960 pixels
+Terá 3 recursos para ser coletado: Arvore(madeira), ovelha(comida) e mina de ouro(ouro).
+Os recursos funcionam da seguinte maneira:
+
+* Arvore: 
+O jogador irá equipar o machado(atalho : 2) e atacando com o machado dara 1 de dano na avore(caso a arvore esteja no raio do ataque).
+Vida : 5.
+Ao chegar em 0 a vida da arvore ira virar um toco de arvore e depois de um certo tempo crescera novamente
+Ela fica parada e cresce novamente no mesmo lugar
+Quantidade de drop da arvore: 3
+Quantidade inicial de arvores no mapa: 5
+Tempo para crescer novamente: 15
+
+* Ovelha: 
+O jogador irá equipar o machado(atalho : 2) e atacando com o machado dara 1 de dano na ovelha(caso a ovelha esteja no raio do ataque).
+Vida : 3.
+Enquanto viva ela se move de tempos em tempos mas respawna no mesmo lugar sempre
+Ao chegar em 0 a vida da ovelha ela irá desaparecer e depois de um certo tempo ela respawna
+Quantidade de drop da ovelha: 2
+Quantidade inicial de ovelhas no mapa: 5
+Tempo para respawnar novamente: 45
+
+* Mina de ouro: 
+O jogador estando perto da mina, tera que clicar nela 3 vezes e assim coletara o ouro dela
+Ao clicar 3 vezes a mina fica incapacitada e depois de um certo retorna ao normal e pode ser coletado o ouro novamente
+Ela fica no mesmo lugar parada sempre
+Quantidade de drop da mina: 3
+Quantidade inicial de minas no mapa: 4
+Tempo para coletar novamente: 30
+
+Sistemas dos recursos:
+Limites ?
+Custo inicial para comprar recursos adicionais: 10 ouros
+O custo aumenta em 50% a cada compra subsequente
+
+Custo inicial de upgrade para cada fator: 20 ouros
+O custo de upgrade aumenta em 50% a cada nível
+Cada upgrade melhora a quantidade de drop/tempo de coleta em 1 unidade
+
+
+** Ilha de baixo:
+Largura : 1984 pixels
+Altura : 833 pixels
+Nesta ilha onde o combate irá acontecer
+Será baseado no sistema de ondas onde será de tempo em tempo, o jogador não poderá adiantar a próxima onda
+* Balanceamento das waves:
+Primeira Wave:
+Tempo para a próxima: 60s
+Quantos inimigos: 5
+
+Seguintes:
+Aumentara 10s entre cada onda
+2 inimigos a mais em cada onda
+
+* Inimigos:
+Goblin normal: Um goblin com uma tocha na mão, ele pode atacar o cavaleiro
+Vida: 3
+Dano: 1
+Velocidade: 1
+
+Goblin com dynamite: Um goblin com uma dynamite na mão, ele pode jogar essa dynamite em uma torre de arqueiro.
+Vida: 2
+Dano da dynamite: 2
+Velocidade: 1 
+
+Goblin com barril de dynamite: Um goblin com barril de dynamite nas costas, ao ser derrotado o barril em suas costas explode, assim dando nas estruturas e nos heróis
+Vida: 4
+Dano do barril: 3
+Velocidade: 0.8
+
+Aumentar a vida dos inimigos em 20% a cada onda, o dano em 10% e a velocidade em 5%.
+
+* Estruturas
+Teram dois tipos de estruturas(obstaculos):
+Obstaculo basico: O jogador conseguira construir esse obstaculo onde apenas servira como obstaculo para o caminho dos goblins
+Custo: 10 madeiras e 5 ouros.
+
+Obstaculo avançado: O jogador conseguira colocar arqueiros e torre de arqueiros em cima desses obstaculos, 1 para um arqueiro e precisara de 2 para a torre de arqueiro
+Custo: 20 madeiras e 10 ouros.
+
+Talvez ir aumentando o preço a cada compra?
+
+* Heróis
+- Arqueiro: Irá lançar uma flecha na direção do inimigo.
+Pode ser colocado em cima de um obstaculo avançado:
+Dano: 2
+Vida: 3
+Velocidade do ataque: 1
+Range do ataque(px): 100px
+Custo para comprar: 10 carnes e 40 ouros
+
+- Torre de Arqueiro: Irá lançar uma flecha na direção do inimigo.
+Pode ser colocado em cima de dois obstaculos avançados:
+Dano: 3
+Vida: 5
+Velocidade do ataque: 0.8
+Range do ataque(px): 120
+Custo para comprar: 20 carnes e 60 ouros
+
+- Cavaleiro: Um guerreiro onde pode ser colocado no caminho e não em obstaculos, ela terá uma espada e com ela irá atacar os inimigos.
+Dano: 3
+Vida: 8
+Velocidade de ataque: 1.5
+Range em que perseguirá os inimigos(px): 80
+Custo para comprar: 15 carnes e 50 ouros
+
+Upgrades:
+Tera upgrade de cada tributo até 3 levels
+Custo: 20 ouros
+A cada upgrade aumenta 50% o custo
+Cada upgrade aumenta o tributo em 1
+
+Menu para colocar a compra de herois e obstaculos:
+3 herois
+
+2 obstaculos
+
+Tera toda a ilha aberta onde os goblins irao nascer na parte de baixo
+Spawn dos goblins: Nascer aleatorio em baixo? Nascer apenas em certos pontos em baixo? Por exemplo ter 3 pontos de spawn onde no começo apenas 1 esta ativo e conforme
+for dificultando ir liberando os outros? Fazer cada onda aleatorio o ponto de spawn?
+
+Levando em conta todos os aspectos que passei, como voce balancearia esse jogo? Quero valores fixos e não valores como entre 1 e 10, a nao ser que seja um valor que voce queira que seja aleatorio entre esses valores
+
+POSSIVEIS ATUALIZAÇÕES FUTURAS:
+Chão de gelo compravel para deixar os inimigos mais lentos
+Chão de espinhos para dar dano nos inimigos

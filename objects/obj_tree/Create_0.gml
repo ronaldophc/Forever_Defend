@@ -1,7 +1,7 @@
 randomize();
-recovery_time = game_get_speed(gamespeed_fps) * 10;
+cooldown = 15;
+recovery_time = game_get_speed(gamespeed_fps) * cooldown;
 recovery_timer = 0;
-idepth = depth;
 lifes = 3;
 state = noone;
 state_txt = "idle";
@@ -9,6 +9,17 @@ image_ind = 0;
 image_spd = random_range(9, 11) / game_get_speed(gamespeed_fps);
 image_numb = 1;
 sprite = spr_tree;
+qtd = 3;
+upgrade_cost = 20;
+level = 1;
+
+att_upgrade = function () {
+	cooldown -= 2;
+	qtd += 1;
+	recovery_time = game_get_speed(gamespeed_fps) * cooldown;
+	upgrade_cost += 10;
+	level += 1;
+}
 
 ajusta_sprite = function(_sprite) {
 	if(sprite != _sprite) image_ind = 0;
@@ -28,7 +39,6 @@ state_damage = function () {
 	state_txt = "damage";
 	image_spd = 4 / game_get_speed(gamespeed_fps);
 	if(sprite != spr_tree_damaged) {
-		obj_player.wood += 5;
 		lifes--;
 	}
 	ajusta_sprite(spr_tree_damaged);
@@ -37,7 +47,9 @@ state_damage = function () {
 		if(lifes <= 0) {
 			recovery_timer = recovery_time;
 			lifes = 3;
-			instance_create_layer(x, y, "Resources", obj_tree_spawn);
+			obj_player.wood += qtd;
+			var _i = instance_create_layer(x, y, "Resources", obj_tree_spawn);
+			_i.qtd = qtd;
 			state = state_chopped;
 		} else {
 			state = state_idle;

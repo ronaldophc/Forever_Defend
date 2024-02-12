@@ -1,5 +1,6 @@
 randomize();
-recovery_time = game_get_speed(gamespeed_fps) * 10;
+cooldown = 45;
+recovery_time = game_get_speed(gamespeed_fps) * cooldown;
 recovery_timer = 0;
 state = noone;
 state_txt = "";
@@ -15,7 +16,17 @@ walk_time = random_range(2.7, 3.3) * game_get_speed(gamespeed_fps);
 walk_timer = walk_time;
 alpha = 0;
 alpha2 = 1;
-idepth = depth;
+qtd = 2;
+upgrade_cost = 20;
+level = 1;
+
+att_upgrade = function () {
+	cooldown -= 5;
+	qtd += 1;
+	recovery_time = game_get_speed(gamespeed_fps) * cooldown;
+	upgrade_cost += 10;
+	level += 1;
+}
 
 ajusta_sprite = function(_sprite) {
 	if(sprite != _sprite) image_ind = 0;
@@ -41,16 +52,19 @@ walking = function () {
 }
 	
 take_damage = function () {
-	alpha = 1;
-	life--;
+	if(state != state_die) {
+		alpha = 1;
+		life--;
+	}
 }
 	
 die = function () {
 	if(life <= 0) {
 		if(instance_exists(obj_player)) {
-			obj_player.food += 5;
+			obj_player.food += qtd;
 		}
-		instance_create_layer(x, y, "Resources", obj_sheep_spawn);
+		var _i = instance_create_layer(x, y, "Resources", obj_sheep_spawn);
+		_i.qtd = qtd;
 		recovery_timer = recovery_time;
 		state = state_die;
 	}

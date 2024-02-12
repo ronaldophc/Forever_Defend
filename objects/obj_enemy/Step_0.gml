@@ -1,4 +1,5 @@
 if(life <= 0) {
-	instance_destroy();	
+	instance_destroy();
+	exit;
 }
 state();

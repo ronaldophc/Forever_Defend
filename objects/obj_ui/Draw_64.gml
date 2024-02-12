@@ -40,7 +40,7 @@ if(instance_exists(obj_player)) {
 	#region Resources
 	draw_sprite_stretched(spr_banner_horizontal, 1, _width / 2, 16, _width / 2 - 16, _tamh / 1.5);
 	draw_sprite(spr_tree_icon, 1, _width - 130, _tamh / 3);
-	draw_sprite(spr_g_idle, 1, _width - 260, _tamh / 3);
+	draw_sprite(spr_g_idle, 1, _width - 265, _tamh / 3);
 	draw_sprite(spr_sheep_icon, 1, _width - 400, _tamh / 3);
 	draw_set_valign(1);
 	draw_set_halign(1);
@@ -54,5 +54,4 @@ if(instance_exists(obj_player)) {
 	draw_set_valign(-1);
 	draw_set_halign(-1);
 	#endregion
-	//debug_message(game_get_speed(gamespeed_fps), 64, 96);
 }

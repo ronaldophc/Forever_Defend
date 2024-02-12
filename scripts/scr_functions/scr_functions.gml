@@ -24,5 +24,12 @@ function coloca_grid(_x, _y, _obj) {
 	}
 }
 
+function adepth() 
+{
+	depth = -y;
+}
+
+global.archer_g = 30;
+global.archer_f = 10;
 
 

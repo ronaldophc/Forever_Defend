@@ -8,6 +8,6 @@
 //);
 //ind++;
 
-var _random_x = random_range(200, 2800);
+//var _random_x = random_range(590, 2400);
 
-instance_create_layer(_random_x, 2400, "Enemys", obj_enemy);
+//instance_create_layer(_random_x, 2400, "Enemys", obj_enemy);

@@ -1,3 +1,4 @@
+adepth();
 var _colisoes = [obj_colision, obj_tree];
 var _sprite = spr_worker_idle;
 var _chao = instance_place(x + velh, y, _colisoes);

@@ -6,7 +6,8 @@ image_ind = 0;
 image_spd = 10 / game_get_speed(gamespeed_fps);
 sprite = spr_torch_red_idle;
 xscale = 1;
-life = 100;
+life = 5;
+damage = 1;
 path = undefined;
 ind = 0;
 
@@ -40,9 +41,9 @@ state_inpath = function () {
 	state_txt = "inpath";
 	sprite = spr_torch_red_run;
 	var _x = path[ind][0] * 64 + 32;
-	var _y = path[ind][1] * 64;
+	var _y = path[ind][1] * 64 + 32;
 	if(point_distance(x, y, obj, obj) <= 64) chegou_dest();
-	move_towards_point(_x, _y, 3);
+	move_towards_point(_x, _y, 1);
 	if(point_distance(x, y, _x, _y) < speed) {
 		if(ind < array_length(path) - 1) {
 			ind++;
@@ -63,8 +64,9 @@ state_inpath = function () {
 state = state_idle;
 
 create_path = function(_x, _y, _targetx, _targety) {
-		var _start = [floor(_x div 64), floor(_y div 64)];
-		var _stop = [floor(_targetx div 64), floor(_targety div 64)];
+		ind = 0;
+		var _start = [_x div 64, _y div 64];
+		var _stop = [_targetx div 64, _targety div 64];
 		var _path = script_execute(scr_a_star_search, obj_path_control.grid, obj_path_control.weights, _start, _stop);
 		return _path;
 }
